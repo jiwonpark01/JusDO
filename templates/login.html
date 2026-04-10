@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JusDO Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#ff7b1f',
+                            sand: '#ffd29a'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+    <main class="hero-grid relative mx-auto flex min-h-screen max-w-7xl items-center px-6 py-10 md:px-10">
+        <div class="brand-orb one"></div>
+        <div class="brand-orb two"></div>
+        <section class="grid w-full gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+            <div class="flex flex-col justify-center gap-10">
+                <div class="space-y-6">
+                    <div class="accent-chip inline-flex items-center gap-3 rounded-full px-4 py-2 text-xs uppercase tracking-[0.3em] text-white/80">
+                        <span class="h-2 w-2 rounded-full bg-brand-orange"></span>
+                        JusDO Performance System
+                    </div>
+                    <div class="space-y-4">
+                        <p class="font-display brand-wordmark text-xs uppercase text-white/40">JUSDO TASK ENGINE</p>
+                        <h1 class="font-display text-6xl uppercase leading-none text-white md:text-8xl">Just<br>Do It.</h1>
+                        <p class="max-w-xl text-base leading-7 text-white/70 md:text-lg">
+                            어두운 트랙 위에서도 흐름을 잃지 않게. JusDO는 오늘 해야 할 일을
+                            가장 선명한 리듬으로 정리하는 개인 작업 보드입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <section class="surface relative rounded-[2rem] p-6 md:p-8">
+                <div class="mb-10 flex items-center justify-between">
+                    <div>
+                        <p class="font-display text-3xl uppercase">로그인</p>
+                        <p class="mt-2 text-sm text-white/55">계정에 로그인하고 오늘의 체크리스트를 시작하세요.</p>
+                    </div>
+                    <a href="/signup" class="ghost-button rounded-full px-4 py-2 text-sm text-white/75">회원가입</a>
+                </div>
+                <form id="login-form" class="space-y-5">
+                    <div class="space-y-2">
+                        <label for="loginId" class="text-sm text-white/70">로그인 아이디</label>
+                        <input id="loginId" name="loginId" type="text" required class="form-input w-full rounded-2xl px-4 py-4 outline-none focus:border-white/30" placeholder="justdo_runner">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="password" class="text-sm text-white/70">비밀번호</label>
+                        <input id="password" name="password" type="password" required class="form-input w-full rounded-2xl px-4 py-4 outline-none focus:border-white/30" placeholder="비밀번호를 입력하세요">
+                    </div>
+                    <button type="submit" class="accent-button mt-8 w-full rounded-2xl px-5 py-4 text-sm font-bold uppercase tracking-[0.28em]">JusDO 시작하기</button>
+                </form>
+                <div id="login-message" class="mt-4 min-h-6 text-sm text-white/70"></div>
+            </section>
+        </section>
+    </main>
+    <script src="/static/js/login.js"></script>
+</body>
+</html>

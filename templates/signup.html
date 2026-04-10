@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JusDO Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+    <main class="relative mx-auto flex min-h-screen max-w-6xl items-center px-6 py-10">
+        <div class="brand-orb one"></div>
+        <div class="brand-orb two"></div>
+        <section class="grid w-full gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <aside class="surface-soft rounded-[2rem] p-8">
+                <p class="font-display brand-wordmark text-xs uppercase text-white/35">JUSDO / JOIN</p>
+                <h1 class="font-display mt-6 text-6xl uppercase leading-none">Start Your<br>Flow</h1>
+                <p class="mt-5 max-w-md text-sm leading-7 text-white/65">
+                    사용자별로 할 일이 분리되는 구조에 맞춰 계정을 먼저 만듭니다.
+                    로그인 아이디는 고유값이고, 비밀번호는 서버에서 해시 처리됩니다.
+                </p>
+            </aside>
+            <section class="surface rounded-[2rem] p-6 md:p-8">
+                <div class="mb-8 flex items-center justify-between">
+                    <div>
+                        <p class="font-display text-3xl uppercase">회원가입</p>
+                        <p class="mt-2 text-sm text-white/55">새 계정을 만들고 바로 JusDO 흐름에 들어갑니다.</p>
+                    </div>
+                    <a href="/" class="ghost-button rounded-full px-4 py-2 text-sm text-white/75">로그인</a>
+                </div>
+                <form id="signup-form" class="space-y-5">
+                    <div class="space-y-2">
+                        <label for="userName" class="text-sm text-white/70">이름</label>
+                        <input id="userName" name="userName" type="text" required class="form-input w-full rounded-2xl px-4 py-4 outline-none" placeholder="홍길동">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="loginId" class="text-sm text-white/70">로그인 아이디</label>
+                        <input id="loginId" name="loginId" type="text" required class="form-input w-full rounded-2xl px-4 py-4 outline-none" placeholder="jusdo_hong">
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-2">
+                        <div class="space-y-2">
+                            <label for="password" class="text-sm text-white/70">비밀번호</label>
+                            <input id="password" name="password" type="password" required class="form-input w-full rounded-2xl px-4 py-4 outline-none" placeholder="비밀번호">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="confirmPassword" class="text-sm text-white/70">비밀번호 확인</label>
+                            <input id="confirmPassword" name="confirmPassword" type="password" required class="form-input w-full rounded-2xl px-4 py-4 outline-none" placeholder="비밀번호 확인">
+                        </div>
+                    </div>
+                    <button type="submit" class="accent-button w-full rounded-2xl px-5 py-4 text-sm font-bold uppercase tracking-[0.28em]">계정 만들기</button>
+                </form>
+                <div id="signup-message" class="mt-4 min-h-6 text-sm text-white/70"></div>
+            </section>
+        </section>
+    </main>
+    <script src="/static/js/signup.js"></script>
+</body>
+</html>

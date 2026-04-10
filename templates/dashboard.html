@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JusDO Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+    <main class="mx-auto min-h-screen max-w-7xl px-6 py-8 md:px-10">
+        <header class="surface flex flex-col gap-6 rounded-[2rem] p-6 md:flex-row md:items-end md:justify-between">
+            <div>
+                <p class="font-display brand-wordmark text-xs uppercase text-white/35">JUSDO / DASHBOARD</p>
+                <h1 class="font-display mt-4 text-5xl uppercase leading-none md:text-7xl">Move With<br>Intent</h1>
+                <p id="welcome-message" class="mt-4 max-w-2xl text-sm leading-7 text-white/65">
+                    로그인한 사용자의 오늘 할 일 흐름을 대시보드에서 바로 확인합니다.
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="/TodoList" class="accent-button rounded-full px-5 py-3 text-sm font-bold uppercase tracking-[0.2em]">할 일 목록</a>
+                <button id="logout-button" class="ghost-button rounded-full px-5 py-3 text-sm uppercase tracking-[0.2em] text-white/80">로그아웃</button>
+            </div>
+        </header>
+        <section class="mt-8 grid gap-4 md:grid-cols-3">
+            <article class="surface metric-card rounded-[2rem] p-6">
+                <p class="text-xs uppercase tracking-[0.24em] text-white/35">전체 할 일</p>
+                <p id="total-count" class="mt-6 font-display text-6xl uppercase">0</p>
+            </article>
+            <article class="surface metric-card rounded-[2rem] p-6">
+                <p class="text-xs uppercase tracking-[0.24em] text-white/35">진행 중</p>
+                <p id="waiting-count" class="mt-6 font-display text-6xl uppercase">0</p>
+            </article>
+            <article class="surface metric-card rounded-[2rem] p-6">
+                <p class="text-xs uppercase tracking-[0.24em] text-white/35">완료</p>
+                <p id="done-count" class="mt-6 font-display text-6xl uppercase">0</p>
+            </article>
+        </section>
+        <section class="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <article class="surface rounded-[2rem] p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="font-display text-3xl uppercase">최근 흐름</p>
+                        <p class="mt-2 text-sm text-white/55">가장 최근에 다뤘던 할 일을 빠르게 훑어봅니다.</p>
+                    </div>
+                    <a href="/TodoList" class="text-sm text-orange-300">전체 보기</a>
+                </div>
+                <div id="recent-todos" class="mt-6 grid gap-4"></div>
+            </article>
+            <article class="surface rounded-[2rem] p-6">
+                <div>
+                        <p class="font-display text-3xl uppercase">상태 비율</p>
+                    <p class="mt-2 text-sm text-white/55">전체, 대기, 완료 비중을 한눈에 봅니다.</p>
+                </div>
+                <div class="chart-shell mt-6 rounded-[2rem] p-5">
+                    <div class="h-72">
+                        <canvas id="todo-ratio-chart"></canvas>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-center">
+                    <div class="status-strip flex w-full max-w-xl items-center justify-center gap-8 rounded-full px-6 py-4 text-center">
+                        <div class="status-item">
+                            <p class="text-xs uppercase tracking-[0.2em] text-white/35">전체</p>
+                            <p id="chart-total" class="mt-2 font-display text-3xl uppercase text-white">0</p>
+                        </div>
+                        <div class="status-divider h-10 w-px"></div>
+                        <div class="status-item">
+                            <p class="text-xs uppercase tracking-[0.2em] text-white/35">진행 중</p>
+                            <p id="chart-waiting" class="mt-2 font-display text-3xl uppercase text-white/80">0</p>
+                        </div>
+                        <div class="status-divider h-10 w-px"></div>
+                        <div class="status-item">
+                            <p class="text-xs uppercase tracking-[0.2em] text-white/35">완료</p>
+                            <p id="chart-done" class="mt-2 font-display text-3xl uppercase text-orange-200">0</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

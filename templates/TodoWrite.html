@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JusDO Todo Write</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+    <main class="mx-auto min-h-screen max-w-6xl px-6 py-8 md:px-10">
+        <header class="surface flex flex-col gap-6 rounded-[2rem] p-6 md:flex-row md:items-end md:justify-between">
+            <div>
+                <p class="font-display brand-wordmark text-xs uppercase text-white/35">JUSDO / WRITE</p>
+                <h1 id="write-title" class="font-display mt-4 text-5xl uppercase leading-none md:text-7xl">Write<br>Todo</h1>
+                <p id="write-description" class="mt-4 max-w-2xl text-sm leading-7 text-white/65">
+                    새 할 일을 등록하고 바로 리스트 흐름으로 이어갑니다.
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="/TodoList" class="ghost-button rounded-full px-5 py-3 text-sm uppercase tracking-[0.2em] text-white/80">목록으로</a>
+                <a href="/dashboard" class="ghost-button rounded-full px-5 py-3 text-sm uppercase tracking-[0.2em] text-white/80">대시보드</a>
+            </div>
+        </header>
+        <section class="mt-8 grid gap-6 lg:grid-cols-[0.75fr_1.25fr]">
+            <aside class="surface rounded-[2rem] p-6">
+                <p class="font-display text-3xl uppercase">작성 안내</p>
+                <div class="mt-6 space-y-4 text-sm leading-7 text-white/65">
+                    <p>수정 모드에서는 기존 내용이 자동으로 채워집니다.</p>
+                    <p>완료 여부도 같은 화면에서 함께 정리할 수 있습니다.</p>
+                    <p>저장 후에는 다시 Todo List로 돌아갑니다.</p>
+                </div>
+            </aside>
+            <section class="surface rounded-[2rem] p-6 md:p-8">
+                <form id="todo-form" class="space-y-5">
+                    <div class="space-y-2">
+                        <label for="title" class="text-sm text-white/70">제목</label>
+                        <input id="title" name="title" type="text" required class="form-input w-full rounded-2xl px-4 py-4 outline-none" placeholder="오늘 끝낼 가장 중요한 일">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="content" class="text-sm text-white/70">내용</label>
+                        <textarea id="content" name="content" rows="10" class="form-textarea w-full rounded-2xl px-4 py-4 outline-none" placeholder="세부 작업, 메모, 마감 감각을 적어두세요"></textarea>
+                    </div>
+                    <label id="completed-wrapper" class="form-checkbox hidden items-center gap-3 rounded-2xl px-4 py-4 text-sm text-white/70">
+                        <input id="isCompleted" name="isCompleted" type="checkbox" class="h-4 w-4 accent-orange-400">
+                        이 할 일을 완료 상태로 표시
+                    </label>
+                    <div class="flex flex-wrap gap-3">
+                        <button type="submit" id="submit-button" class="accent-button rounded-2xl px-6 py-4 text-sm font-bold uppercase tracking-[0.24em]">저장하기</button>
+                        <button type="button" id="reset-button" class="ghost-button rounded-2xl px-6 py-4 text-sm uppercase tracking-[0.24em] text-white/80">초기화</button>
+                    </div>
+                </form>
+                <div id="todo-message" class="mt-4 min-h-6 text-sm text-white/70"></div>
+            </section>
+        </section>
+    </main>
+    <script src="/static/js/todo-write.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JusDO Todo List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+    <main class="mx-auto min-h-screen max-w-7xl px-6 py-8 md:px-10">
+        <header class="surface flex flex-col gap-6 rounded-[2rem] p-6 md:flex-row md:items-center md:justify-between">
+            <div>
+                <p class="font-display brand-wordmark text-xs uppercase text-white/35">JUSDO / TODO LIST</p>
+                <h1 class="font-display mt-4 text-5xl uppercase leading-none md:text-7xl">Your<br>Checklist</h1>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="/dashboard" class="ghost-button rounded-full px-5 py-3 text-sm uppercase tracking-[0.2em] text-white/80">대시보드</a>
+                <a href="/TodoWrite" class="accent-button rounded-full px-5 py-3 text-sm font-bold uppercase tracking-[0.2em]">할 일 작성</a>
+                <button id="logout-button" class="ghost-button rounded-full px-5 py-3 text-sm uppercase tracking-[0.2em] text-white/80">로그아웃</button>
+            </div>
+        </header>
+
+        <section class="mt-8 surface rounded-[2rem] p-6">
+            <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                    <p class="font-display text-3xl uppercase">할 일 목록</p>
+                    <p class="mt-2 text-sm text-white/55">지금 진행 중인 할 일을 위에서 바로 정리합니다.</p>
+                </div>
+                <span id="todo-count" class="accent-chip rounded-full px-4 py-2 text-xs uppercase tracking-[0.24em] text-white/80">0개</span>
+            </div>
+            <div id="todo-list" class="mt-6 flex flex-col gap-4"></div>
+            <div id="todo-empty" class="mt-6 hidden rounded-3xl border border-dashed border-white/12 p-10 text-center text-white/55">
+                아직 등록된 할 일이 없습니다. 첫 번째 목표를 적어보세요.
+            </div>
+        </section>
+
+        <section class="mt-6 surface rounded-[2rem] p-6">
+            <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                    <p class="font-display text-3xl uppercase">완료한 일</p>
+                    <p class="mt-2 text-sm text-white/55">끝낸 일은 아래에 모아두고 성취 흐름이 보이게 유지합니다.</p>
+                </div>
+                <span id="completed-count" class="ghost-button rounded-full px-4 py-2 text-xs uppercase tracking-[0.24em] text-white/70">0개</span>
+            </div>
+            <div class="completed-hero mt-6 rounded-[1.75rem] px-5 py-4">
+                <p class="text-xs uppercase tracking-[0.28em] text-orange-200/80">완료 기록</p>
+                <p class="mt-2 text-sm text-white/70">완료한 일은 여기서 쌓입니다. 아래로 갈수록 해낸 기록이 남습니다.</p>
+            </div>
+            <div id="completed-list" class="mt-6 flex flex-col gap-4"></div>
+            <div id="completed-empty" class="mt-6 hidden rounded-3xl border border-dashed border-white/12 p-10 text-center text-white/45">
+                아직 완료한 할 일이 없습니다.
+            </div>
+        </section>
+    </main>
+    <script src="/static/js/todo-list.js"></script>
+</body>
+</html>
